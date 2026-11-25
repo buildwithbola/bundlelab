@@ -1,0 +1,267 @@
+import { MerchantConfig, ShopifyProduct, StarterBundlePreset } from "@/types/bundle";
+
+export const DEFAULT_MERCHANT_CONFIG: MerchantConfig = {
+  storeName: "Verdant Lab",
+  pricingMode: "tiered_percent",
+  targetSlots: 4,
+  tiers: [
+    { id: "tier-2", minItems: 2, discountPercent: 10, label: "Save 10%" },
+    { id: "tier-3", minItems: 3, discountPercent: 15, label: "Save 15%" },
+    { id: "tier-4", minItems: 4, discountPercent: 20, label: "20% OFF" },
+  ],
+  fixedBoxMinItems: 3,
+  fixedBoxPriceCents: 7800,
+  freeGiftMinItems: 3,
+  allowSubscribeAndSave: true,
+  subscribeExtraPercent: 10,
+};
+
+export const FREE_GIFT_SKU: ShopifyProduct = {
+  id: 9001,
+  handle: "verdant-travel-essence-mini",
+  title: "Botanical Essence Mini",
+  vendor: "Verdant Lab",
+  category: "Gift",
+  tagline: "Complimentary 15ml travel-size barrier essence",
+  description:
+    "Auto-unlocked at threshold with $0.00 checkout line value when bundled via Shopify Cart Transform or Discount Function.",
+  highlights: ["15ml Travel Vial", "Auto-Added at Threshold", "$18.00 Value"],
+  badge: "FREE GIFT",
+  image: "/images/products/travel-mini.jpg",
+  variants: [
+    {
+      id: 44900101,
+      title: "15ml Travel Size",
+      priceCents: 1800,
+      compareAtPriceCents: 1800,
+      available: true,
+      sku: "VL-ESS-15",
+    },
+  ],
+};
+
+export const DEFAULT_PRODUCTS: ShopifyProduct[] = [
+  {
+    id: 1001,
+    handle: "amino-botanical-cleanser",
+    title: "Amino Gel Cleanser",
+    vendor: "Verdant Lab",
+    category: "Cleansers",
+    tagline: "pH-balanced green tea & oat amino wash",
+    description:
+      "A non-stripping daily botanical gel cleanser formulated to dissolve SPF and surface buildup while leaving the moisture barrier calm and supple.",
+    highlights: ["pH 5.2 Balanced", "Fragrance-Free", "Refillable Pump"],
+    badge: "Best Seller",
+    image: "/images/products/cleanser-gel.jpg",
+    variants: [
+      {
+        id: 44100101,
+        title: "120ml Standard",
+        priceCents: 2800,
+        compareAtPriceCents: 3200,
+        available: true,
+        sku: "VL-CLN-120",
+        sellingPlanId: 6889011,
+      },
+      {
+        id: 44100102,
+        title: "240ml Studio Size",
+        priceCents: 4400,
+        compareAtPriceCents: 4800,
+        available: true,
+        sku: "VL-CLN-240",
+        sellingPlanId: 6889012,
+      },
+    ],
+  },
+  {
+    id: 1002,
+    handle: "polyglutamic-hydra-serum",
+    title: "Hydra-Peptide Serum",
+    vendor: "Verdant Lab",
+    category: "Serums",
+    tagline: "Multi-weight hyaluronic + copper peptides",
+    description:
+      "Fast-absorbing aqueous serum combining polyglutamic acid and signal peptides for visibly plumper, bouncy hydration under moisturizer.",
+    highlights: ["3% Peptide Complex", "Zero Tackiness", "Dermatologist Tested"],
+    badge: "Top Rated",
+    image: "/images/products/hydra-serum.jpg",
+    variants: [
+      {
+        id: 44100201,
+        title: "30ml Dropper",
+        priceCents: 3800,
+        compareAtPriceCents: 4200,
+        available: true,
+        sku: "VL-SRM-030",
+        sellingPlanId: 6889021,
+      },
+      {
+        id: 44100202,
+        title: "50ml Pro",
+        priceCents: 5400,
+        compareAtPriceCents: 6000,
+        available: true,
+        sku: "VL-SRM-050",
+        sellingPlanId: 6889022,
+      },
+    ],
+  },
+  {
+    id: 1003,
+    handle: "ceramide-barrier-cream",
+    title: "Ceramide Barrier Cream",
+    vendor: "Verdant Lab",
+    category: "Moisturizers",
+    tagline: "3:1:1 ceramide lipid cloud whip",
+    description:
+      "Rich yet breathable ceramic-jar cream calibrated with skin-identical ceramides, squalane, and centella to lock in actives overnight.",
+    highlights: ["Ceramides NP + AP", "72h Moisture Lock", "Matte Ceramic Jar"],
+    badge: "Essential",
+    image: "/images/products/barrier-cream.jpg",
+    variants: [
+      {
+        id: 44100301,
+        title: "50ml Jar",
+        priceCents: 3600,
+        compareAtPriceCents: null,
+        available: true,
+        sku: "VL-CRM-050",
+        sellingPlanId: 6889031,
+      },
+      {
+        id: 44100302,
+        title: "100ml Value Jar",
+        priceCents: 5800,
+        compareAtPriceCents: 6600,
+        available: true,
+        sku: "VL-CRM-100",
+        sellingPlanId: 6889032,
+      },
+    ],
+  },
+  {
+    id: 1004,
+    handle: "micro-ferment-mist",
+    title: "Micro-Ferment Mist",
+    vendor: "Verdant Lab",
+    category: "Cleansers",
+    tagline: "Ultra-fine birch sap & niacinamide tonic",
+    description:
+      "Micro-droplet prepping mist that balances post-cleanse skin and boosts absorption of water-binding serums without disturbing makeup.",
+    highlights: ["2% Niacinamide", "Ultra-Fine Atomizer", "Alcohol-Free"],
+    image: "/images/products/botanical-mist.jpg",
+    variants: [
+      {
+        id: 44100401,
+        title: "100ml Mist",
+        priceCents: 2400,
+        compareAtPriceCents: null,
+        available: true,
+        sku: "VL-MST-100",
+        sellingPlanId: 6889041,
+      },
+      {
+        id: 44100402,
+        title: "150ml Refill",
+        priceCents: 3200,
+        compareAtPriceCents: 3600,
+        available: true,
+        sku: "VL-MST-150",
+        sellingPlanId: 6889042,
+      },
+    ],
+  },
+  {
+    id: 1005,
+    handle: "blue-tansy-recovery-oil",
+    title: "Botanical Recovery Oil",
+    vendor: "Verdant Lab",
+    category: "Treatments",
+    tagline: "Cold-pressed squalane + bakuchiol elixir",
+    description:
+      "Featherlight dry oil sealed in UV-shielded emerald apothecary glass to calm visible redness and seal evening routines.",
+    highlights: ["1% Bakuchiol", "Sugarcane Squalane", "Cold-Pressed"],
+    badge: "Night Step",
+    image: "/images/products/recovery-oil.jpg",
+    variants: [
+      {
+        id: 44100501,
+        title: "30ml Apothecary",
+        priceCents: 4200,
+        compareAtPriceCents: 4600,
+        available: true,
+        sku: "VL-OIL-030",
+        sellingPlanId: 6889051,
+      },
+      {
+        id: 44100502,
+        title: "50ml Reserve",
+        priceCents: 6200,
+        compareAtPriceCents: 6800,
+        available: true,
+        sku: "VL-OIL-050",
+        sellingPlanId: 6889052,
+      },
+    ],
+  },
+  {
+    id: 1006,
+    handle: "matcha-kaolin-clay-mask",
+    title: "Matcha Kaolin Mask",
+    vendor: "Verdant Lab",
+    category: "Treatments",
+    tagline: "10-minute pore-refining glacial clay",
+    description:
+      "Creamy non-cracking matcha and white kaolin mask that decongests pores without drying tight, housed in an aluminum squeeze tube.",
+    highlights: ["Japanese Matcha", "Non-Drying Clay", "2x Weekly Use"],
+    image: "/images/products/clay-mask.jpg",
+    variants: [
+      {
+        id: 44100601,
+        title: "75ml Tube",
+        priceCents: 3000,
+        compareAtPriceCents: null,
+        available: true,
+        sku: "VL-MSK-075",
+        sellingPlanId: 6889061,
+      },
+    ],
+  },
+];
+
+export const STARTER_PRESETS: StarterBundlePreset[] = [
+  {
+    id: "preset-duo",
+    name: "Hydration Duo",
+    subtitle: "Cleanser + Serum",
+    badge: "2 Items",
+    items: [
+      { productId: 1001, variantId: 44100101, quantity: 1 },
+      { productId: 1002, variantId: 44100201, quantity: 1 },
+    ],
+  },
+  {
+    id: "preset-trio",
+    name: "Morning Ritual",
+    subtitle: "Cleanse · Treat · Seal",
+    badge: "3 Items",
+    items: [
+      { productId: 1001, variantId: 44100101, quantity: 1 },
+      { productId: 1002, variantId: 44100201, quantity: 1 },
+      { productId: 1003, variantId: 44100301, quantity: 1 },
+    ],
+  },
+  {
+    id: "preset-complete",
+    name: "Complete Lab Kit",
+    subtitle: "Full 4-Step Routine",
+    badge: "Max Savings",
+    items: [
+      { productId: 1001, variantId: 44100101, quantity: 1 },
+      { productId: 1004, variantId: 44100401, quantity: 1 },
+      { productId: 1002, variantId: 44100201, quantity: 1 },
+      { productId: 1003, variantId: 44100301, quantity: 1 },
+    ],
+  },
+];
